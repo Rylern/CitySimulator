@@ -23,8 +23,8 @@ public class SunRotation : MonoBehaviour
     {
         sunLight = GetComponent<Light>();
         speed = 0f;
-        latitude = 62.472217;
-        longitude = 6.235064;
+        latitude = 48.09378896438294;
+        longitude = -1.3751390789403706;
         dateTime = DateTime.Now;
         dateTime = DateTime.SpecifyKind(dateTime, DateTimeKind.Unspecified);
         UTC = TimeZoneInfo.Local.BaseUtcOffset;

@@ -247,8 +247,8 @@ public class Heatmap : MonoBehaviour
         float caseHeight = 1 / (float)nbPointsParkZ;
         DateTime time = sunRotation.GetDateTime().Date;
         DateTime endTime = time.AddHours(endingHourCFH);
-        time.AddHours(beginningHourCFH);
-        float secondsStep = endTime.Subtract(time).Seconds / NB_SUN_POSITION;
+        time = time.AddHours(beginningHourCFH);
+        float secondsStep = (float) endTime.Subtract(time).TotalSeconds / NB_SUN_POSITION;
 
         // Loop over each time of the day and each point of the park to compute the binary change map
         for (int k = 0; k < NB_SUN_POSITION - 1; k++)

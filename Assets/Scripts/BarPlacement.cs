@@ -15,7 +15,7 @@ public class BarPlacement : MonoBehaviour
     private GameObject bar;
     private bool dragging;
     private GameUIManager gameUIManager;
-    private Vector3 buildingSize;
+    private Vector3 barSize;
 
 
     void Awake()
@@ -34,7 +34,7 @@ public class BarPlacement : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, Mathf.Infinity, layerMask))
             {
                 Vector3 pos = hit.point;
-                pos.y += buildingSize.y/2;
+                pos.y += barSize.y/2;
                 bar.transform.position = pos;
             }
 
@@ -83,7 +83,7 @@ public class BarPlacement : MonoBehaviour
 
             bar = Instantiate(barPrefab, parentBar);
             bar.GetComponent<LightBar>().SetDragging(true);
-            buildingSize = bar.GetComponent<Collider>().bounds.size;
+            barSize = bar.GetComponent<Collider>().bounds.size;
 
             dragging = true;
         }

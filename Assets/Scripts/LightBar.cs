@@ -40,7 +40,7 @@ public class LightBar : MonoBehaviour
             float lightIntensity = GetLightIntensity();
             Vector3 newPosition = pointPosition;
 
-            newPosition.y += height * (lightIntensity - 0.5f) - 3f;
+            newPosition.y += height * (lightIntensity - 0.5f);
             transform.position = newPosition;
 
             for (int i = 0; i < uvs.Length; i++)
@@ -94,15 +94,15 @@ public class LightBar : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        // Place the point 2m above the terrain
+        // Place the point 1m above the terrain
         int layerMask = 1 << 8;     // Mask that will make the ray goes through all entities except the terrain
         if (Physics.Raycast(new Vector3(pos.x, height, pos.z), Vector3.down, out RaycastHit hit, Mathf.Infinity, layerMask))
         {
-            pos.y = hit.point.y + 2f;
+            pos.y = hit.point.y + 1f;
         }
         else
         {
-            pos.y = 2f;
+            pos.y = 1f;
         }
         return pos;
     }

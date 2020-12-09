@@ -73,6 +73,7 @@ public class SkyExposure : MonoBehaviour
                     theta = i * resTheta;
                     phi = j * resPhi;
                     Vector3 direction = new Vector3(Mathf.Sin(theta) * Mathf.Cos(phi), Mathf.Cos(theta), Mathf.Sin(theta) * Mathf.Sin(phi));
+                    Debug.DrawRay(position, direction*10, Color.red, 10f);
 
                     int layerMaskBar = ~(1 << 9);      // Ignore the bars
                     if (Physics.Raycast(position, direction, out RaycastHit hitSky, Mathf.Infinity, layerMaskBar))
